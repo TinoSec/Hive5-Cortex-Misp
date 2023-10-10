@@ -34,11 +34,10 @@ Download cassandra.yaml to */etc/cassandra/*
 
 [cassandra.yaml](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/cassandra.yaml)
 
-Edit the file, change *192.168.1.2* for your-sever-ip.
+Edit the file, change *"192.168.1.2"* for your-sever-ip.
 
 Once done, start service and Cassandra DB
 
-FALTA AGREGAR ARCHIVO Y COMANDO GITCLONE AL DIRECTORIO
 ```bash
 sudo systemctl enable cassandra REVISAR NECESIDAD
 sudo systemctl start cassandra
@@ -49,7 +48,9 @@ Try connection with Cassandra (default pass: cassandra)
 ```bash
 cqlsh -u cassandra <IP ADDRESS> -e "SELECT table_name,gc_grace_seconds FROM system_schema.tables WHERE keyspace_name='thehive'"
 ```
+
 Example:
+
 *cqlsh -u cassandra 192.168.1.2 -e "SELECT table_name,gc_grace_seconds FROM system_schema.tables WHERE keyspace_name='thehive'"*
 
 
