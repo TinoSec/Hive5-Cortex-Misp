@@ -22,7 +22,7 @@ echo JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto" | sudo tee -a /etc/environ
 export JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto"
 ```
 
-# Install Cassandra-4
+# Install Cassandra 4
 ```bash
 wget -qO -  https://downloads.apache.org/cassandra/KEYS | sudo gpg --dearmor  -o /usr/share/keyrings/cassandra-archive.gpg
 echo "deb [signed-by=/usr/share/keyrings/cassandra-archive.gpg] https://debian.cassandra.apache.org 40x main" |  sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
@@ -30,7 +30,11 @@ sudo apt update
 sudo apt install cassandra
 sudo rm -rf /var/lib/cassandra/*
 ```
-Download cassandra.yaml to */etc/cassandra/* & edit the file, change *<IpAddress>* for your-sever-ip.
+Download cassandra.yaml to */etc/cassandra/*
+
+[cassandra.yaml](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/cassandra.yaml)
+
+Edit the file, change *192.168.1.2* for your-sever-ip.
 
 Once done, start service and Cassandra DB
 
@@ -45,8 +49,11 @@ Try connection with Cassandra (default pass: cassandra)
 ```bash
 cqlsh -u cassandra <IP ADDRESS> -e "SELECT table_name,gc_grace_seconds FROM system_schema.tables WHERE keyspace_name='thehive'"
 ```
+Example:
+*cqlsh -u cassandra 192.168.1.2 -e "SELECT table_name,gc_grace_seconds FROM system_schema.tables WHERE keyspace_name='thehive'"*
 
-# Install Elasticsearch-7
+
+# Install Elasticsearch 7
 
 ```bash
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch |  sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
@@ -55,14 +62,16 @@ echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://arti
 sudo apt update
 sudo apt install elasticsearch
 ```
-Download elasticsearch.yml to */etc/elasticsearch/* & edit the file, change *<IpAddress>* for your-sever-ip
+Download elasticsearch.yml to */etc/elasticsearch/* & edit the file, change *192.168.1.2* for your-sever-ip
+
+[elasticsearch.yml](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/elasticsearch.yml)
 
 Download jvm.options to */etc/elasticsearch/jvm.options.d/* 
 
+XXXXXXXX jvm.options FIle
+
+
 **This last file is used to define your ram consumption**
-
-FALTA AGREGAR ARCHIVO Y COMANDO GITCLONE AL DIRECTORIO
-
 
 ```bash
 sudo systemctl start elasticsearch
@@ -82,8 +91,10 @@ sudo apt-get install -y thehive
 sudo mkdir -p /opt/thp/thehive/files
 chown -R thehive:thehive /opt/thp/thehive/files
 ```
-Download application.conf to */etc/thehive/* & edit the file, change *<IpAddress>* for your-sever-ip
-REVISAR SI SE GENERO SECRET.CONF
+Download application.conf to */etc/thehive/* & edit the file, change *192.168.1.2* for your-sever-ip
+
+[application.conf (hive)](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/application.conf(hive))
+
 
 ```bash
 sudo systemctl enable thehive
@@ -127,8 +138,12 @@ Once finished, restart Cortex service
 ```bash
 sudo systemctl restart cortex
 ```
+In order to configure analyzers to run locally use this configuration guide as example
+
+[application.conf (cortex)](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/application.conf(cortex))
 
 Login Cortex http://your-server-ip:9001/
+
 
 
 
