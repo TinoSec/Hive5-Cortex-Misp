@@ -3,6 +3,8 @@ Integrate Hive5, Cortex & Misp for your Open-Source SOC.
 
 If you want to develop your own Open-Source SOC, this guide will help you, files included here are tested for Ubuntu 22.04 enviroments. 
 
+The examples and files assume that the server's ip is "192.168.1.2", change this value to your server's ip
+
 The original installation guide can be found https://docs.strangebee.com/thehive/setup/installation/step-by-step-guide/
 
 # Install required packages TheHive-5
