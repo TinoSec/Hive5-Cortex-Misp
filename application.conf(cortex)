@@ -6,7 +6,7 @@
 #
 # IMPORTANT: If you deploy your application to several  instances,  make
 # sure to use the same key.
-play.http.secret.key="9VaVde5HTGLq5VbIWrLX2dJYs1nkuZ2G7IAniQtqTJY9iOMW8wgzmsEb7JWmmrzW"
+play.http.secret.key="xxxxxxxxxxxxxx"
 
 ## ElasticSearch
 search {
