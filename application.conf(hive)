@@ -27,7 +27,7 @@ include "/etc/thehive/secret.conf"
 db.janusgraph {
   storage {
     backend = cql
-    hostname = ["192.168.10.62"]
+    hostname = ["192.168.1.2"]
     # Cassandra authentication (if configured)
     # username = "thehive"
     # password = "password"
@@ -57,7 +57,7 @@ play.http.parser.maxDiskBuffer = 1GB
 play.http.parser.maxMemoryBuffer = 10M
 
 # Service configuration
-application.baseUrl = "http://192.168.10.62:9000"
+application.baseUrl = "http://192.168.1.2:9000"
 play.http.context = "/"
 
 # Additional modules
@@ -73,10 +73,10 @@ cortex {
   servers: [
     {
       name = "Cortex"
-      url = "http://192.168.10.62:9001"
+      url = "http://192.168.1.2:9001"
       auth {
         type = "bearer"
-        key = "TrHuSeq4lx3WTa5DCHBU7YNzLHb4FA9p"
+        key = "xxxxxxxxxxxxxx"
        }
      wsConfig {}
     }
@@ -90,10 +90,10 @@ misp {
   servers: [
     {
       name = "MISP"            
-      url = "https://192.168.10.25" 
+      url = "https://192.168.1.3" 
       auth {
         type = key
-        key = "YVJsAisLSKpgwMOFOlYjeBktkqpQhX91WB2qIeZH"
+        key = "xxxxxxxxxxxxxxxxxxxx"
        }
 #      wsConfig {}
       wsConfig.ssl.loose.acceptAnyCertificate: true
