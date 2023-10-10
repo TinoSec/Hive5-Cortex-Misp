@@ -30,8 +30,7 @@ sudo apt update
 sudo apt install cassandra
 sudo rm -rf /var/lib/cassandra/*
 ```
-Download cassandra.yaml to */etc/cassandra/*
-
+Download cassandra.yaml to */etc/cassandra/* 
 [cassandra.yaml](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/cassandra.yaml)
 
 Edit the file, change *"192.168.1.2"* for your-sever-ip.
@@ -67,10 +66,7 @@ Download elasticsearch.yml to */etc/elasticsearch/* & edit the file, change *192
 
 [elasticsearch.yml](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/elasticsearch.yml)
 
-Download jvm.options to */etc/elasticsearch/jvm.options.d/* 
-
-XXXXXXXX jvm.options FIle
-
+Download jvm.options to */etc/elasticsearch/jvm.options.d/* [jvm.options](https://github.com/TinoSec/Hive5-Cortex-Misp/blob/main/jvm.options)
 
 **This last file is used to define your ram consumption**
 
